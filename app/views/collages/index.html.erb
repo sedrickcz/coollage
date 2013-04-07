@@ -1,25 +1,19 @@
-<h1>Listing collages</h1>
+<h1>Coollage Gallery</h1>
 
 <table>
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @collages.each do |collage| %>
-  <tr>
-    <td><%= collage.title %></td>
-    <td><%= collage.author %></td>
-    <td><%= link_to 'Show', collage %></td>
-    <td><%= link_to 'Edit', edit_collage_path(collage) %></td>
-    <td><%= link_to 'Destroy', collage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <% @collages.each_slice(3) do |slice| %>
+    <tr>
+      <% slice.each do |collage| %>
+          <td>
+            <%= image_tag("/images/collage_#{collage.id}.png", size: "200x200") %><br />
+            <%= collage.title %><br />
+            <%= collage.author_name%>
+          </td>
+      <% end -%>
+    </tr>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Collage', new_collage_path %>
+<%= link_to 'Create New Collage', root_path, class: "win_button" %>

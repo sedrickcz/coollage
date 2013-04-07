@@ -21,15 +21,15 @@ jQuery ->
     
   $('#images_picker div').click ->
     value = $(this).data('id').toString()
-    $selected = $('#select_images')
-    prev_val = $selected.text()
-
+    $selected = $('#collage_selected_images')
+    prev_val = $selected.val()
+   
     if $(this).hasClass('image_picked')
       $(this).removeClass('image_picked')
       if prev_val.length > 0
         field = prev_val.split('-')
         field.splice(field.indexOf(value),1)
-        $selected.text(field.join('-'))
+        $selected.val(field.join('-'))
     else
       $(this).addClass('image_picked')
       
@@ -38,8 +38,8 @@ jQuery ->
     
         if jQuery.inArray(value, field) == -1
           field.push(value)
-          $selected.text(field.join('-'))
+          $selected.val(field.join('-'))
       else
-        $selected.text(value)
+        $selected.val(value)
 
   

@@ -3,28 +3,29 @@
 <div id="win_container">
   <div id="image_picker" class="win_image">
     <div class="win_header">Select images<span class="win_close">X</span></div>
-
     <div class="win_footer"><div class="win_button picker_button">Continue with selected</div></div>
     <%= render '/images/image_picker'%>
-    
   </div>
   <div id="image_uploader" class="win_image">
     <div class="win_header">Upload new image<span class="win_close">X</span></div>
-    <div class="win_footer"><div class="win_button picker_button">Continue with selected</div></div>
+    <div class="win_footer"><div class="win_button picker_button">Continue with uploaded</div></div>
     <%= render '/images/image_uploader'%>
-
   </div>
 
-  <div id="uploader">
-    <%= image_tag('uploader.png')%>
-  </div>
+  
 </div>
-
+<div class="clear"></div>
+<div id="uploader">
+  <span class="picker_title">Upload images</span><br /><br />
+  <%= image_tag('uploader.png')%>
+</div>
+<span class="picker_title"> OR </span>
 <div id="picker">
-
+  <span class="picker_title">Pick images</span>
   <%= image_tag('picker.png')%>
 </div>
 
-
-<%= render 'form' %>
+<div id="coolage_form">
+  <%= render 'form' %>
+</div>
 

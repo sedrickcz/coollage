@@ -1,5 +1,9 @@
 <div id="images_picker">
+  <% if @images and @images.any? %>
   <%= render @images, show: false%>
+  <% else %>
+    <p>No images uploaded</p>
+  <% end -%>
 </div>
 <div class="clear"></div>
 

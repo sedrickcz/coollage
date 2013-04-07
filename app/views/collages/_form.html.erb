@@ -1,12 +1,13 @@
 <%= simple_form_for(@collage) do |f| %>
 
   <div class="field">
-    <%= f.input :title %>
+    <%= f.input :title, placeholder: 'Coollage Title', label: false %>
   </div>
   <div class="field">
-    <%= f.input :author %>
+    <%= f.input :author, placeholder: 'Author', label: false %>
   </div>
+  <%= f.input :selected_images, as: :hidden %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button :submit, class: "win_button" %>
   </div>
 <% end %>

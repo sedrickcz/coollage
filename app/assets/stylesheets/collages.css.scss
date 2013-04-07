@@ -8,7 +8,6 @@
 .win_image {
   position: absolute;
   display:none;
-  margin-left: 20%;
   z-index: 999;
   background: white;
   border: 10px solid #f0a37d;
@@ -115,5 +114,22 @@
 }
 
 #picker {
+  margin-left: 500px;
   cursor: pointer;
+  width: 256px;
+}
+
+#coolage_form{
+  margin-left: 10%;
+  margin-top: 10px;
+}
+
+#collage_title, #collage_author {
+  margin-left: 10%;
+}
+
+.picker_title {
+  font-family: 'Leckerli One', cursive;
+  font-size: 30px;
+  margin-left: 30px;
 }

@@ -8,5 +8,5 @@ jQuery ->
   $('.win_close').click ->
     $(this).parent().parent().fadeOut(400);
 
-  $('.win_button').click ->
+  $('.picker_button').click ->
     $(this).parent().parent().fadeOut(400);

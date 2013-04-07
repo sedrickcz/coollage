@@ -2,7 +2,7 @@ class CollagesController < ApplicationController
   # GET /collages
   # GET /collages.json
   def index
-    @collages = Collage.all
+    @collages = Collage.order(:created_at)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,14 +41,12 @@ class CollagesController < ApplicationController
   # POST /collages.json
   def create
     @collage = Collage.new(params[:collage])
-
+    
     respond_to do |format|
       if @collage.save
-        format.html { redirect_to @collage, notice: 'Collage was successfully created.' }
-        format.json { render json: @collage, status: :created, location: @collage }
+        format.html { redirect_to collages_url, notice: 'Collage was successfully created.' }
       else
         format.html { render action: "new" }
-        format.json { render json: @collage.errors, status: :unprocessable_entity }
       end
     end
   end

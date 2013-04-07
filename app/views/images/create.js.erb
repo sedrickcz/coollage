@@ -2,4 +2,18 @@
   alert("Failed to upload image:  <%= j @image.errors.full_messages.join(', ').html_safe %>");
 <% else %>
   $("#images_uploader").append("<%= j render(@image, show: true)%>");
+  var $selected = $("#collage_selected_images"),
+      prev_val = $selected.val(),
+      value = "<%= @image.id%>";
+
+  if(prev_val.length > 0){
+    field = prev_val.split('-');
+    if(jQuery.inArray(value, field) == -1){
+      field.push(value);
+      $selected.val(field.join('-'));
+    } 
+  }
+  else{
+     $selected.val(value);
+  }    
 <% end %>
