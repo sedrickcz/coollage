@@ -1,0 +1,7 @@
+<div class="image" data-id="<%= image.id%>">
+  <%= image_tag(image.image_url(:thumb)) if image.image? %><br />
+  <span class="image_filename">
+    <%= link_to("remove", image, remote: true, method: :delete) if show %>
+  </span>
+  
+</div>

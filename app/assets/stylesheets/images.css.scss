@@ -1,0 +1,46 @@
+// Place all the styles related to the Collages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#progress{
+  /*border: 1px solid black;*/
+  padding: 5px;
+  background: #CCE6FF;
+  
+  img {
+    margin-right: 10px;
+  }
+
+  .image_name {
+    margin-right: 10px;
+  }
+}
+
+#images {
+  margin-bottom: 10px;
+  .image {
+    float:left;
+    margin: 10px;
+    border: 1px solid black;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+    .image_filename{
+      text-align: center;
+
+    }
+  }
+  .image_picked{
+   background: #CCE6FF; 
+  }
+}
+
+.upload_message {
+  margin-bottom: 10px;
+  .remove_message {
+    position: absolute;
+    right:20px;
+    vertical-align: top;
+    cursor: pointer;
+  }
+}

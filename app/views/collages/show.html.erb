@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @collage.title %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @collage.author %>
+</p>
+
+
+<%= link_to 'Edit', edit_collage_path(@collage) %> |
+<%= link_to 'Back', collages_path %>

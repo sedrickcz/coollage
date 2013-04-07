@@ -1,0 +1,47 @@
+jQuery ->
+  #change name of file_tag, because Rails bug https://github.com/rails/rails/issues/9830
+  $('#image_image').attr
+    name: 'image[image]'
+
+  $('#new_image').fileupload
+    dataType: "script"
+    add: (e, data) ->
+      types = /(\.|\/)(gif|jpe?g|png)$/i
+      file = data.files[0]
+      if types.test(file.type) || types.test(file.name)
+        data.context = $('<div/>').attr({class:'upload_message'}).html("<div id='progress'><img src='<%= asset_path('loading.gif') %>'><span class='image_name'>#{file.name}</span></div>").appendTo(document.body)
+        $('#new_image').append(data.context)
+        data.submit()
+      else
+        data.context = $('<div/>').attr({'data-file': file.name, class:'upload_message'}).html("<div id='progress'><img src='<%= asset_path('cancel.png') %>'> <span>\"#{file.name}\" is not a gif, jpeg, or png image file</span><span class='remove_message' onclick='remove_message(\"#{file.name}\");'>x</span></div>").appendTo(document.body)
+        $('#new_image').append(data.context)
+    done: (e, data) ->
+      file = data.files[0]
+      data.context.attr({'data-file': file.name, class:'upload_message'}).html("<div id='progress'><img src='<%= asset_path('accept.png') %>'> <span>#{file.name}</span> <span class='remove_message' onclick='remove_message(\"#{file.name}\");'>x</span></div>")
+
+  $('#images div').click ->
+    value = $(this).data('id').toString()
+    $selected = $('#select_images')
+    prev_val = $selected.text()
+
+    if $(this).hasClass('image_picked')
+      $(this).removeClass('image_picked')
+      if prev_val.length > 0
+        field = prev_val.split('-')
+        field.splice(field.indexOf(value),1)
+        $selected.text(field.join('-'))
+    else
+      $(this).addClass('image_picked')
+      
+      if prev_val.length > 0
+        field = prev_val.split('-')
+    
+        if jQuery.inArray(value, field) == -1
+          field.push(value)
+          $selected.text(field.join('-'))
+      else
+        $selected.text(value)
+# remove_message = (name) ->
+#   jQuery.find("[data-file='" + name + "']")[0].remove()
+
+  
