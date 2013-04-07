@@ -1,3 +1,12 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+jQuery ->
+  $('#uploader').click ->
+    $('#image_uploader').fadeIn(400);
+
+  $('#picker').click ->
+    $('#image_picker').fadeIn(400);
+
+  $('.win_close').click ->
+    $(this).parent().parent().fadeOut(400);
+
+  $('.win_button').click ->
+    $(this).parent().parent().fadeOut(400);

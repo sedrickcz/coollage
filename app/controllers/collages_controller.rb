@@ -25,7 +25,7 @@ class CollagesController < ApplicationController
   # GET /collages/new.json
   def new
     @collage = Collage.new
-
+    @images = Image.order('created_at DESC')
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @collage }

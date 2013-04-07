@@ -1,0 +1,9 @@
+<%= simple_form_for Image.new do |f| %>
+  <%= f.input :image,label: 'Add new image: ', as: :file, input_html:{multiple: true} %>
+<% end -%>
+
+
+
+<div id="images_uploader">
+  <%#= render @images %>
+</div>

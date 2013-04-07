@@ -4,7 +4,7 @@
 #progress{
   /*border: 1px solid black;*/
   padding: 5px;
-  background: #CCE6FF;
+  background: #f0a37d;
   
   img {
     margin-right: 10px;
@@ -15,9 +15,18 @@
   }
 }
 
-#images {
+#images_picker {
   margin-bottom: 10px;
-  .image {
+  max-width: 800px;
+  max-height: 450px;
+  padding-left: 50px;
+  padding-top: 50px;
+  .image_picked{
+   background: #f0a37d; 
+  }
+}
+
+.image {
     float:left;
     margin: 10px;
     border: 1px solid black;
@@ -30,9 +39,14 @@
 
     }
   }
-  .image_picked{
-   background: #CCE6FF; 
-  }
+
+#images_uploader {
+  margin-bottom: 10px;
+  max-width: 800px;
+  max-height: 450px;
+  padding-left: 50px;
+  padding-top: 50px;
+  
 }
 
 .upload_message {
@@ -43,4 +57,9 @@
     vertical-align: top;
     cursor: pointer;
   }
+}
+
+#new_image {
+  padding-top: 20px;
+  margin: 10px;
 }

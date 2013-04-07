@@ -15,6 +15,5 @@
 //= require jquery-fileupload/basic
 //= require_tree .
 
-function remove_message(name){
-  jQuery.find("[data-file='" + name + "']")[0].remove();
-}
+
+

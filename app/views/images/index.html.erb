@@ -1,12 +1,1 @@
-<div id="images">
-  <%= render @images, show: false%>
-</div>
-<div class="clear"></div>
-<div class="apple_pagination">
-  <div class="page_info">
-    <%= page_entries_info @images %>
-  </div>
-  <%= will_paginate @images, :container => false %>
-</div>
-
-<div id="select_images"></div>
+<%= render 'image_picker'%>

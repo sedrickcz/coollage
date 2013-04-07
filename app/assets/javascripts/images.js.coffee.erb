@@ -13,13 +13,13 @@ jQuery ->
         $('#new_image').append(data.context)
         data.submit()
       else
-        data.context = $('<div/>').attr({'data-file': file.name, class:'upload_message'}).html("<div id='progress'><img src='<%= asset_path('cancel.png') %>'> <span>\"#{file.name}\" is not a gif, jpeg, or png image file</span><span class='remove_message' onclick='remove_message(\"#{file.name}\");'>x</span></div>").appendTo(document.body)
+        data.context = $('<div/>').attr({'data-file': file.name, class:'upload_message'}).html("<div id='progress'><img src='<%= asset_path('cancel.png') %>'> <span>\"#{file.name}\" is not a gif, jpeg, or png image file</span><span class='remove_message' onclick='remove_message(\"#{file.name}\");'></span></div>").appendTo(document.body)
         $('#new_image').append(data.context)
     done: (e, data) ->
       file = data.files[0]
-      data.context.attr({'data-file': file.name, class:'upload_message'}).html("<div id='progress'><img src='<%= asset_path('accept.png') %>'> <span>#{file.name}</span> <span class='remove_message' onclick='remove_message(\"#{file.name}\");'>x</span></div>")
-
-  $('#images div').click ->
+      data.context.attr({'data-file': file.name, class:'upload_message'}).html("<div id='progress'><img src='<%= asset_path('accept.png') %>'> <span>#{file.name}</span> <span class='remove_message' ></span></div>").delay(2000).fadeOut(1000)
+    
+  $('#images_picker div').click ->
     value = $(this).data('id').toString()
     $selected = $('#select_images')
     prev_val = $selected.text()
@@ -41,7 +41,5 @@ jQuery ->
           $selected.text(field.join('-'))
       else
         $selected.text(value)
-# remove_message = (name) ->
-#   jQuery.find("[data-file='" + name + "']")[0].remove()
 
   

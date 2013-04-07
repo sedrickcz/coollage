@@ -1,5 +1,30 @@
-<h1>New collage</h1>
+<h1>Coollage Generator</h1>
+
+<div id="win_container">
+  <div id="image_picker" class="win_image">
+    <div class="win_header">Select images<span class="win_close">X</span></div>
+
+    <div class="win_footer"><div class="win_button picker_button">Continue with selected</div></div>
+    <%= render '/images/image_picker'%>
+    
+  </div>
+  <div id="image_uploader" class="win_image">
+    <div class="win_header">Upload new image<span class="win_close">X</span></div>
+    <div class="win_footer"><div class="win_button picker_button">Continue with selected</div></div>
+    <%= render '/images/image_uploader'%>
+
+  </div>
+
+  <div id="uploader">
+    <%= image_tag('uploader.png')%>
+  </div>
+</div>
+
+<div id="picker">
+
+  <%= image_tag('picker.png')%>
+</div>
+
 
 <%= render 'form' %>
 
-<%= link_to 'Back', collages_path %>
