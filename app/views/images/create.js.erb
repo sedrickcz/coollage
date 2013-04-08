@@ -15,5 +15,12 @@
   }
   else{
      $selected.val(value);
-  }    
+  }
+  if($('#collage_title').val().length == 0 || $('#collage_selected_images').val().length == 0){
+    $('.button').attr('disabled','disabled');
+  }
+  else{
+    $('.button').removeAttr("disabled");
+  }
+      
 <% end %>
