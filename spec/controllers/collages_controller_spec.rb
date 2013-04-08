@@ -24,7 +24,7 @@ describe CollagesController do
   # Collage. As you add validations to Collage, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "title" => "MyString" }
+    { "title" => "MyString", "author" => "John Doe","selected_images" => "1-2-3" }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -57,14 +57,6 @@ describe CollagesController do
     end
   end
 
-  describe "GET edit" do
-    it "assigns the requested collage as @collage" do
-      collage = Collage.create! valid_attributes
-      get :edit, {:id => collage.to_param}, valid_session
-      assigns(:collage).should eq(collage)
-    end
-  end
-
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Collage" do
@@ -81,7 +73,7 @@ describe CollagesController do
 
       it "redirects to the created collage" do
         post :create, {:collage => valid_attributes}, valid_session
-        response.should redirect_to(Collage.last)
+        response.should redirect_to(collages_path)
       end
     end
 
@@ -101,64 +93,4 @@ describe CollagesController do
       end
     end
   end
-
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested collage" do
-        collage = Collage.create! valid_attributes
-        # Assuming there are no other collages in the database, this
-        # specifies that the Collage created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Collage.any_instance.should_receive(:update_attributes).with({ "title" => "MyString" })
-        put :update, {:id => collage.to_param, :collage => { "title" => "MyString" }}, valid_session
-      end
-
-      it "assigns the requested collage as @collage" do
-        collage = Collage.create! valid_attributes
-        put :update, {:id => collage.to_param, :collage => valid_attributes}, valid_session
-        assigns(:collage).should eq(collage)
-      end
-
-      it "redirects to the collage" do
-        collage = Collage.create! valid_attributes
-        put :update, {:id => collage.to_param, :collage => valid_attributes}, valid_session
-        response.should redirect_to(collage)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns the collage as @collage" do
-        collage = Collage.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Collage.any_instance.stub(:save).and_return(false)
-        put :update, {:id => collage.to_param, :collage => { "title" => "invalid value" }}, valid_session
-        assigns(:collage).should eq(collage)
-      end
-
-      it "re-renders the 'edit' template" do
-        collage = Collage.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Collage.any_instance.stub(:save).and_return(false)
-        put :update, {:id => collage.to_param, :collage => { "title" => "invalid value" }}, valid_session
-        response.should render_template("edit")
-      end
-    end
-  end
-
-  describe "DELETE destroy" do
-    it "destroys the requested collage" do
-      collage = Collage.create! valid_attributes
-      expect {
-        delete :destroy, {:id => collage.to_param}, valid_session
-      }.to change(Collage, :count).by(-1)
-    end
-
-    it "redirects to the collages list" do
-      collage = Collage.create! valid_attributes
-      delete :destroy, {:id => collage.to_param}, valid_session
-      response.should redirect_to(collages_url)
-    end
-  end
-
 end
