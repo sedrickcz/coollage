@@ -1,3 +1,4 @@
+
 <%= simple_form_for(@collage) do |f| %>
 
   <div class="field">
@@ -7,7 +8,7 @@
     <%= f.input :author, placeholder: 'Author', label: false %>
   </div>
   <%= f.input :selected_images, as: :hidden %>
-  <div class="actions">
-    <%= f.button :submit, class: "win_button" %>
+  <div class="collage_actions">
+    <%= f.button :submit, class: "win_button", id: "create_coolage"%>
   </div>
 <% end %>

@@ -41,5 +41,13 @@ jQuery ->
           $selected.val(field.join('-'))
       else
         $selected.val(value)
+    dis()
+
+  dis = ()->
+    if $('#collage_title').val().length == 0 || $('#collage_selected_images').val().length == 0
+      $('.button').attr('disabled','disabled')
+    else
+      $('.button').removeAttr("disabled")
+
 
   

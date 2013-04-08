@@ -74,7 +74,7 @@
     border:1px solid #942911;
     
     display:inline-block;
-    color:#ffffff;
+    color:#ffffff !important;
     font-family:arial;
     font-size:13px;
     font-weight:normal;
@@ -101,7 +101,6 @@
     position:relative;
     top:1px;
 }
-
 
 
 #image_picker {
@@ -132,4 +131,14 @@
   font-family: 'Leckerli One', cursive;
   font-size: 30px;
   margin-left: 30px;
+}
+
+
+
+div#loading {
+  margin-left: 20%;
+  min-height: 91px;
+  min-width: 135px;
+  background-image:url('images/loader.gif');
+  background-repeat: no-repeat;
 }

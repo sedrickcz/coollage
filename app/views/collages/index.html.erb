@@ -1,13 +1,17 @@
 <h1>Coollage Gallery</h1>
-
+<%= link_to 'Create New Collage', root_path, class: "win_button" %>
 <table>
-  <% @collages.each_slice(3) do |slice| %>
+  <% @collages.each_slice(4) do |slice| %>
     <tr>
       <% slice.each do |collage| %>
           <td>
-            <%= image_tag("/images/collage_#{collage.id}.png", size: "200x200") %><br />
-            <%= collage.title %><br />
-            <%= collage.author_name%>
+            <%= link_to collage do %>
+              <div class="image">
+                <%= image_tag("/images/thumb_collage_#{collage.id}.png") %><br />
+                <%= collage.title %><br />
+                <%= collage.author_name%>
+              </div>
+            <% end -%>
           </td>
       <% end -%>
     </tr>
@@ -16,4 +20,4 @@
 
 <br />
 
-<%= link_to 'Create New Collage', root_path, class: "win_button" %>
+

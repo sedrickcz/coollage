@@ -1,7 +1,7 @@
 class Collage < ActiveRecord::Base
   attr_accessible :author, :title, :selected_images
   attr_accessor :selected_images
-  validates :title, presence: true
+  validates :title,:selected_images, presence: true
 
   after_save :generate_collage
 
@@ -13,7 +13,7 @@ class Collage < ActiveRecord::Base
       if image
         file = image.image.file.file 
         i = Magick::Image.read(file).first
-        images << i.resize_to_fit!(200)
+        images << i.resize_to_fit!(100 + rand(600))
       end
     end
     
@@ -25,8 +25,11 @@ class Collage < ActiveRecord::Base
       x = rand(1400)
       y = rand(1000)
     end
-    file_path = "#{Rails.root}/public/images/collage_#{id}.png"
-    bg.write(file_path)
+    file_path = "#{Rails.root}/public/images/"
+    file_name = "collage_#{id}.png"
+    bg.write("#{file_path}#{file_name}")
+    bg.resize_to_fit!(200).write("#{file_path}thumb_#{file_name}")
+    bg.destroy!
   end
 
   def author_name

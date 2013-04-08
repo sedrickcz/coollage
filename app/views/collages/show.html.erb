@@ -1,15 +1,10 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @collage.title %> by <%= @collage.author_name%></h1>
 
-<p>
-  <b>Title:</b>
-  <%= @collage.title %>
-</p>
+<%= link_to 'Back to Coollage Gallery', collages_path , class: "win_button" %><br /><br />
 
-<p>
-  <b>Author:</b>
-  <%= @collage.author %>
-</p>
+<div class="clear"></div>
+<div>
+  <%= image_tag("/images/collage_#{@collage.id}.png") %>
+</div>
 
 
-<%= link_to 'Edit', edit_collage_path(@collage) %> |
-<%= link_to 'Back', collages_path %>

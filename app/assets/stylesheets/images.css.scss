@@ -22,23 +22,33 @@
   padding-left: 50px;
   padding-top: 50px;
   .image_picked{
-   background: #f0a37d; 
+   background: #CCE6FF; 
   }
 }
 
 .image {
     float:left;
     margin: 10px;
-    border: 1px solid black;
+    border: 3px dotted black;
     -moz-border-radius: 15px;
     border-radius: 15px;
     padding: 10px;
     text-align: center;
+    text-decoration:none;
+    background: #f0a37d;
+    color: black;
+    font-weight: bold;
     .image_filename{
+
       text-align: center;
 
     }
+    
   }
+
+.image:hover{
+  color: white;
+}
 
 #images_uploader {
   margin-bottom: 10px;
